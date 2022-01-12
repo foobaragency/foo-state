@@ -1,0 +1,42 @@
+{
+  "name": "@foobar-agency/react-global-state",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    "./*": "./dist/*.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "rm -rf dist",
+    "fix": "yarn lint:prettier --write && yarn lint --fix",
+    "generate:apidocs": "bash scripts/generate-api-docs.sh",
+    "lint": "eslint --ext .ts --cache src",
+    "lint:prettier": "prettier \"**/*.{js,ts,json,md,yml}\""
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "safe-stable-stringify": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.38",
+    "typescript": "^4.5.4",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.2",
+    "typedoc": "^0.22.3",
+    "typedoc-plugin-markdown": "^3.7.1",
+    "prettier": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0"
+  }
+}

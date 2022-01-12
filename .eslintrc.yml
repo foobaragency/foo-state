@@ -1,0 +1,103 @@
+---
+env: { es6: true, node: true, jest: true }
+parser: "@typescript-eslint/parser"
+parserOptions:
+  project: ["tsconfig.json"]
+  sourceType: module
+plugins:
+  - "@typescript-eslint"
+  - import
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:@typescript-eslint/recommended-requiring-type-checking
+  - plugin:import/errors
+  - plugin:import/warnings
+  - plugin:import/typescript
+  - prettier
+settings:
+  import/resolver:
+    node: { paths: ["."] }
+    typescript:
+      alwaysTryTypes: true
+rules:
+  class-methods-use-this: "off"
+  complexity: [warn, { max: 10 }]
+  curly: error
+  default-case: error
+  dot-notation: error
+  eol-last: error
+  guard-for-in: "off"
+  linebreak-style: [error, unix]
+  max-classes-per-file: "off"
+  max-lines: "off"
+  no-bitwise: error
+  no-caller: error
+  no-console: error
+  no-extra-bind: error
+  no-magic-numbers: "off"
+  no-multiple-empty-lines: [error, { max: 1 }]
+  no-new-func: error
+  no-new-wrappers: error
+  no-plusplus: "off"
+  no-return-await: error
+  require-await: "off"
+  no-sequences: error
+  no-template-curly-in-string: error
+  no-throw-literal: error
+  no-undef-init: error
+  no-var: error
+  object-shorthand: error
+  one-var: [error, never]
+  prefer-const: error
+  prefer-object-spread: error
+  prefer-template: error
+  radix: error
+  some-rule: "off"
+  yoda: error
+  no-unused-expressions: error
+  no-duplicate-imports: error
+  no-unneeded-ternary: error
+  no-useless-computed-key: error
+  padded-blocks: [error, { blocks: never, classes: never, switches: never }]
+  padding-line-between-statements:
+    [error, { blankLine: always, prev: "*", next: return }]
+  no-lonely-if: error
+  no-nested-ternary: error
+  eqeqeq: error
+  no-unused-vars: "off"
+  require-atomic-updates: "off"
+  no-case-declarations: "off"
+
+  "@typescript-eslint/array-type": [error, { default: array-simple }]
+  "@typescript-eslint/explicit-member-accessibility":
+    ["off", { overrides: { constructors: "off" } }]
+  "@typescript-eslint/member-delimiter-style":
+    [
+      error,
+      { multiline: { delimiter: none }, singleline: { delimiter: comma } },
+    ]
+  "@typescript-eslint/no-empty-interface": "off"
+  "@typescript-eslint/no-explicit-any": "off"
+  "@typescript-eslint/no-extraneous-class": "off"
+  "@typescript-eslint/no-parameter-properties": "off"
+  "@typescript-eslint/no-require-imports": error
+  "@typescript-eslint/no-unnecessary-qualifier": error
+  "@typescript-eslint/prefer-for-of": error
+  "@typescript-eslint/prefer-function-type": error
+  "@typescript-eslint/prefer-interface": "off"
+  "@typescript-eslint/restrict-plus-operands": error
+  "@typescript-eslint/unified-signatures": error
+  "@typescript-eslint/no-floating-promises": error
+  "@typescript-eslint/no-unused-vars": [error, { argsIgnorePattern: ^_ }]
+  "@typescript-eslint/explicit-function-return-type": "off"
+  "@typescript-eslint/no-misused-promises": "off"
+  "@typescript-eslint/no-use-before-define":
+    [error, { functions: false, classes: false }]
+  "@typescript-eslint/ban-types": "off"
+  "@typescript-eslint/require-await": "off"
+  "@typescript-eslint/explicit-module-boundary-types": "off"
+
+  import/order: ["error", { newlines-between: always }]
+  import/no-named-as-default: "off"
