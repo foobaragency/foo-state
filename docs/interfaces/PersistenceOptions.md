@@ -15,7 +15,7 @@
 
 #### Defined in
 
-[types.ts:8](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/types.ts#L8)
+[types.ts:8](https://github.com/foobaragency/react-global-state/blob/150f5895/src/types.ts#L8)
 
 ___
 
@@ -25,4 +25,4 @@ ___
 
 #### Defined in
 
-[types.ts:9](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/types.ts#L9)
+[types.ts:9](https://github.com/foobaragency/react-global-state/blob/150f5895/src/types.ts#L9)

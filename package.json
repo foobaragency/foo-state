@@ -1,6 +1,6 @@
 {
   "name": "@foobar-agency/react-global-state",
-  "version": "1.0.1-rc.5",
+  "version": "1.0.1",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -25,6 +25,10 @@
     "global"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/foobaragency/react-global-state.git"
+  },
   "scripts": {
     "prepublish": "npm run build",
     "build": "yarn clean && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
@@ -52,8 +56,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "safe-stable-stringify": "^2.3.1",
-    "typedoc": "^0.22.3",
-    "typedoc-plugin-markdown": "^3.7.1",
+    "typedoc": "^0.22.10",
+    "typedoc-plugin-markdown": "^3.11.11",
     "typescript": "^4.5.4"
   }
 }

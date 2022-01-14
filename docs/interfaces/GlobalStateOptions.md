@@ -14,4 +14,4 @@
 
 #### Defined in
 
-[types.ts:13](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/types.ts#L13)
+[types.ts:13](https://github.com/foobaragency/react-global-state/blob/150f5895/src/types.ts#L13)

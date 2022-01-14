@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[types.ts:16](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/types.ts#L16)
+[types.ts:16](https://github.com/foobaragency/react-global-state/blob/150f5895/src/types.ts#L16)
 
 ## Functions
 
@@ -58,4 +58,4 @@
 
 #### Defined in
 
-[createGlobalState.ts:16](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/createGlobalState.ts#L16)
+[createGlobalState.ts:16](https://github.com/foobaragency/react-global-state/blob/150f5895/src/createGlobalState.ts#L16)
