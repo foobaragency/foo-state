@@ -19,7 +19,7 @@ export const createGlobalState = <S>(
 ): GlobalState<S> => {
   const state$ = new Observable<S>(initialState)
 
-  if (options?.persistence?.enabled && isBrowser()) {
+  if (options?.persistence?.key && isBrowser()) {
     rehydrate(state$, options?.persistence)
   }
 
@@ -42,13 +42,13 @@ export const createGlobalState = <S>(
 
   const useReadOnlyState = createReadOnlyHook(state$, state => state)
 
-  const usePartialState = (project: (state: S) => PartialState<S>) =>
+  const createPartialState = (project: (state: S) => PartialState<S>) =>
     createReadOnlyHook(state$, project)
 
   return {
     useGlobalState,
     useReadOnlyState,
-    usePartialState,
+    createPartialState,
     getGlobalState,
     setGlobalState,
   }

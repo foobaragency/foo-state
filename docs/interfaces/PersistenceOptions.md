@@ -4,21 +4,10 @@
 
 ### Properties
 
-- [enabled](PersistenceOptions.md#enabled)
 - [key](PersistenceOptions.md#key)
 - [type](PersistenceOptions.md#type)
 
 ## Properties
-
-### enabled
-
-• **enabled**: `boolean`
-
-#### Defined in
-
-types.ts:8
-
-___
 
 ### key
 
@@ -26,7 +15,7 @@ ___
 
 #### Defined in
 
-types.ts:9
+[types.ts:8](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/types.ts#L8)
 
 ___
 
@@ -36,4 +25,4 @@ ___
 
 #### Defined in
 
-types.ts:10
+[types.ts:9](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/types.ts#L9)

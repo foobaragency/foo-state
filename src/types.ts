@@ -5,7 +5,6 @@ export interface SetStateOptions {
 }
 
 export interface PersistenceOptions {
-  enabled: boolean
   key: string
   type?: "localStorage" | "sessionStorage"
 }
@@ -17,9 +16,12 @@ export interface GlobalStateOptions {
 export type PartialState<T> = Partial<T> | keyof T
 
 export interface GlobalState<T> {
-  useGlobalState: () => readonly [T, (state: SetStateAction<T>) => void]
+  useGlobalState: () => readonly [
+    T,
+    (state: SetStateAction<T>, options?: SetStateOptions) => void
+  ]
   useReadOnlyState: () => PartialState<T>
-  usePartialState: (
+  createPartialState: (
     project: (state: T) => PartialState<T>
   ) => () => PartialState<T>
   getGlobalState: () => T

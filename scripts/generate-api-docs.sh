@@ -4,6 +4,6 @@ set -ex
 npx typedoc src/index.ts \
   --out docs \
   --hideBreadcrumbs true \
-  --name "cf-migrations API"
+  --name "react-global-state"
 
 rm docs/README.md

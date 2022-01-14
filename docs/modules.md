@@ -1,4 +1,4 @@
-# cf-migrations API
+# react-global-state
 
 ## Table of contents
 
@@ -31,7 +31,7 @@
 
 #### Defined in
 
-types.ts:17
+[types.ts:16](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/types.ts#L16)
 
 ## Functions
 
@@ -58,4 +58,4 @@ types.ts:17
 
 #### Defined in
 
-createGlobalState.ts:16
+[createGlobalState.ts:16](https://github.com/foobaragency/react-global-state/blob/6f4ee1a9/src/createGlobalState.ts#L16)

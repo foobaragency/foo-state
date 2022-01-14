@@ -21,23 +21,32 @@ const initialState = 0
 const { useGlobalState } = createGlobalState(initialState)
 
 const Counter = () => {
-    const [count, setCount] = useGlobalState()
+  const [count, setCount] = useGlobalState()
 
-    const decrement = () => {
-        setCount(count - 1)
-    }
+  const decrement = () => {
+    /**
+     * you can also use callback functions
+     */
+    setCount((state) => {
+      if (state > 0) {
+        return state - 1
+      }
 
-    const increment = () => {
-        setCount(count + 1)
-    }
+      return state
+    })
+  }
 
-    return (
-        <div>
-            <button onClick={decrement}>-</button>
-            <span>{count}</span>
-            <button onClick={increment}>+</button>
-        </div>
-    )
+  const increment = () => {
+    setCount(count + 1)
+  }
+
+  return (
+    <div>
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+    </div>
+  )
 }
 ```
 
@@ -50,34 +59,34 @@ const initialState = 0
 
 const { useGlobalState, setGlobalState } = createGlobalState(initialState)
 
-export const setInitialState = async () => {
-    const result = await fetchSomeApi()
-
-    setGlobalState(result)
+function setInitialState() {
+  setTimeout(() => {
+    setGlobalState(10_000)
+  }, 2_000)
 }
 
 const Counter = () => {
-    const [count, setCount] = useGlobalState()
+  const [count, setCount] = useGlobalState()
 
-    useEffect(() => {
-        setInitialState()
-    }, [])
+  useEffect(() => {
+    setInitialState()
+  }, [])
 
-    const decrement = () => {
-        setCount(count - 1)
-    }
+  const decrement = () => {
+    setCount(count - 1)
+  }
 
-    const increment = () => {
-        setCount(count + 1)
-    }
+  const increment = () => {
+    setCount(count + 1)
+  }
 
-    return (
-        <div>
-            <button onClick={decrement}>-</button>
-            <span>{count}</span>
-            <button onClick={increment}>+</button>
-        </div>
-    )
+  return (
+    <div>
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+    </div>
+  )
 }
 ```
 
@@ -91,10 +100,12 @@ const initialState = {
     age: 43
 }
 
-const { usePartialState } = createGlobalState(initialState)
+const { createPartialState } = createGlobalState(initialState)
+
+const useAge = createPartialState(state => state.age)
 
 const Age = () => {
-    const age = usePartialState(state => state.age)
+    const age = useAge()
 
     return (
         <div>{age}</div>
@@ -113,62 +124,97 @@ const initialState = {
 }
 
 const { useGlobalState } = createGlobalState(initialState, {
-    persistence: {
-        enabled: true,
-        key: "x-storage-key",
-        storage: "localStorage", // optional, ca be either localStorage or sessionStorage, localStorage by default
-    }
+  persistence: {
+      key: "x-storage-key",
+      // optional, can be either localStorage or sessionStorage, localStorage by default
+      storage: "localStorage",
+  }
 })
-```
 
-### Example 5 - Using callbacks to update the state
-```jsx
+const Person = () => {
+    const [person, setPerson] = useGlobalState()
 
-import { createGlobalState } from "@foobar-agency/react-global-state"
+    function onChange(e){
+      const {name, value} = e.target
 
-const initialState = 0
-
-const { useGlobalState } = createGlobalState(initialState)
-
-const Counter = () => {
-    const [count, setCount] = useGlobalState()
-
-    const decrement = () => {
-        // preventing count to get below zero
-        setCount((prevCount) => {
-            if (prevCount <= 0) {
-                return prevCount
-            }
-
-            return prevCount - 1;
-        })
-    }
-
-    const increment = () => {
-        setCount(count + 1)
+      setPerson({
+        ...person,
+        [name]: value
+      })
     }
 
     return (
         <div>
-            <button onClick={decrement}>-</button>
-            <span>{count}</span>
-            <button onClick={increment}>+</button>
+          <label>
+            First Name
+            <br />
+           <input name="firstName" value={person.firstName} onChange={onChange} />
+          </label>
+          <label>
+            Last Name
+            <br />
+           <input name="lastName" value={person.lastName} onChange={onChange} />
+          </label>
+          <label>
+            Age
+            <br />
+           <input name="age" value={person.age} onChange={onChange} />
+          </label>
         </div>
     )
 }
 ```
 
-## Example 6 - Using deep comparison (useful for objects and arrays to prevent unnecessary re-renders)
+## Example 5 - Using deep comparison (useful for objects and arrays to prevent unnecessary re-renders)
 ```jsx
 import { createGlobalState } from "@foobar-agency/react-global-state"
 
 const initialState = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 43
+  firstName: "John",
+  lastName: "Doe",
+  age: 43,
 }
 
 const { useGlobalState } = createGlobalState(initialState)
+
+const Profile = () => {
+  const [state, setState] = useGlobalState()
+
+  function invertNames() {
+    const newState = {
+      firstName: "Doe",
+      lastName: "John",
+      age: 43,
+    }
+    setState(newState, { deepCompare: true })
+  }
+
+  return (
+    <div>
+      <p>First Name: {state.firstName}</p>
+      <p>Last Name: {state.lastName}</p>
+      <p>Age: {state.age}</p>
+      <button onClick={invertNames}>Click me!</button>
+    </div>
+  )
+}
+```
+
+## Example 6 - With typescript
+```jsx
+import { createGlobalState } from "@foobar-agency/react-global-state"
+
+type Person = {
+  firstName: string
+  lastName: string
+  age: number
+}
+
+const { useGlobalState } = createGlobalState<Person>({
+  firstName: "John",
+  lastName: "Doe",
+  age: "43" // error, should be of type number
+})
 
 const Profile = () => {
     const [state, setState] = useGlobalState()
@@ -191,23 +237,6 @@ const Profile = () => {
         </div>
     )
 }
-```
-
-## Example 6 - With typescript
-```jsx
-import { createGlobalState } from "@foobar-agency/react-global-state"
-
-type Person = {
-    firstName: string
-    lastName: string
-    age: number
-}
-
-const { useGlobalState } = createGlobalState<Person>({
-    firstName: "John",
-    lastName: "Doe",
-    age: "43" // error, should have type number
-})
 ```
 
 ## 👥 Contributing
