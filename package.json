@@ -31,7 +31,7 @@
     "url": "https://github.com/foobaragency/react-global-state.git"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
     "clean": "rm -rf lib",
     "fix": "yarn lint:prettier --write && yarn lint --fix",
     "generate:apidocs": "bash scripts/generate-api-docs.sh",
@@ -51,12 +51,14 @@
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.8",
     "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.2",
     "@semantic-release/npm": "^8.0.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
