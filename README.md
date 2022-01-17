@@ -25,10 +25,12 @@ const { useGlobalState } = createGlobalState(initialState)
 const Counter = () => {
   const [count, setCount] = useGlobalState()
 
+  const increment = () => {
+    setCount(count + 1)
+  }
+
   const decrement = () => {
-    /**
-     * you can also use callback functions
-     */
+    // you can also use callback functions
     setCount((state) => {
       if (state > 0) {
         return state - 1
@@ -36,10 +38,6 @@ const Counter = () => {
 
       return state
     })
-  }
-
-  const increment = () => {
-    setCount(count + 1)
   }
 
   return (
@@ -128,7 +126,8 @@ const initialState = {
 const { useGlobalState } = createGlobalState(initialState, {
   persistence: {
       key: "x-storage-key",
-      // optional, can be either localStorage or sessionStorage, localStorage by default
+      // optional, defaults to localStorage
+      // localStorage or sessionStorage
       storage: "localStorage",
   }
 })
@@ -203,7 +202,7 @@ const Profile = () => {
 ```
 
 ## Example 6 - With typescript
-```jsx
+```tsx
 import { createGlobalState } from "@foobar-agency/react-global-state"
 
 type Person = {
@@ -215,7 +214,8 @@ type Person = {
 const { useGlobalState } = createGlobalState<Person>({
   firstName: "John",
   lastName: "Doe",
-  age: "43" // error, should be of type number
+  // string is not assignable to type number
+  age: "43"
 })
 
 const Profile = () => {
