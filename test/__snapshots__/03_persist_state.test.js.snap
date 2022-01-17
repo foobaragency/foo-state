@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Persist state: change the first name 1`] = `"{\\"age\\":43,\\"firstName\\":\\"Joe\\",\\"lastName\\":\\"Doe\\"}"`;

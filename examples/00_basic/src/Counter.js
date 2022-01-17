@@ -1,12 +1,11 @@
 import React from "react"
-import ReactDOM from "react-dom"
 import { createGlobalState } from "@foobar-agency/react-global-state"
 
 const initialState = 0
 
 const { useGlobalState } = createGlobalState(initialState)
 
-const Counter = () => {
+export const Counter = () => {
   const [count, setCount] = useGlobalState()
 
   const decrement = () => {
@@ -14,7 +13,7 @@ const Counter = () => {
      * using a callback
      * to prevent negative numbers
      */
-    setCount((state) => {
+    setCount(state => {
       if (state > 0) {
         return state - 1
       }
@@ -35,10 +34,3 @@ const Counter = () => {
     </div>
   )
 }
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Counter />
-  </React.StrictMode>,
-  document.getElementById("root")
-)
