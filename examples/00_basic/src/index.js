@@ -1,11 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import { Profile } from "./Profile"
+import { Counter } from "./Counter"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Profile />
+    <Counter />
   </React.StrictMode>,
   document.getElementById("root")
 )
