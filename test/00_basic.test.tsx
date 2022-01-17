@@ -1,5 +1,4 @@
 import React from "react"
-
 import { render, fireEvent, screen } from "@testing-library/react"
 
 import { Counter } from "../examples/00_basic/src/Counter"
