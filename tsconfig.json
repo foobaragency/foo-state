@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "./dist/esm",
+    "outDir": "./lib/esm",
     "strict": true,
     "esModuleInterop": true,
     "declaration": true,

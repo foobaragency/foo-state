@@ -1,20 +1,20 @@
 {
   "name": "@foobar-agency/react-global-state",
-  "version": "1.0.1",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "version": "1.0.2",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/esm/index.d.ts",
-      "module": "./dist/esm/index.js",
-      "import": "./dist/cjs/index.js",
-      "default": "./dist/cjs/index.js"
+      "types": "./lib/esm/index.d.ts",
+      "module": "./lib/esm/index.js",
+      "import": "./lib/cjs/index.js",
+      "default": "./lib/cjs/index.js"
     }
   },
   "files": [
-    "dist",
+    "lib",
     "src"
   ],
   "keywords": [
@@ -31,8 +31,8 @@
   },
   "scripts": {
     "prepublish": "npm run build",
-    "build": "yarn clean && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
-    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "clean": "rm -rf lib",
     "fix": "yarn lint:prettier --write && yarn lint --fix",
     "generate:apidocs": "bash scripts/generate-api-docs.sh",
     "lint": "eslint --ext .ts --cache src",
