@@ -22,5 +22,5 @@ jobs:
         uses: pascalgn/automerge-action@v0.14.3
         if: steps.waitforstatuschecks.outputs.status == 'success'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
           MERGE_DELETE_BRANCH: true
