@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import { createGlobalState } from "@foobar-agency/react-global-state"
 
 const initialState = 0

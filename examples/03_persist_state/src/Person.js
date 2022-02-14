@@ -1,4 +1,3 @@
-import React from "react"
 import { createGlobalState } from "@foobar-agency/react-global-state"
 
 const initialState = {
