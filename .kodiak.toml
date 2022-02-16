@@ -1,0 +1,15 @@
+# https://kodiakhq.com/docs/config-reference
+version = 1
+
+[approve]
+auto_approve_usernames = ["dependabot"]
+
+[merge]
+automerge_label = ["automerge", "dependencies"]
+method = "rebase"
+delete_branch_on_merge = true
+prioritize_ready_to_merge = true
+
+[merge.automerge_dependencies]
+usernames = ["dependabot"]
+versions = ["minor", "patch"]
