@@ -4,12 +4,7 @@ import { Observable } from "./Observable"
 import { isBrowser } from "./isBrowser"
 import { isEqual } from "./isEqual"
 import { rehydrate } from "./rehydrate"
-import {
-  GlobalState,
-  GlobalStateOptions,
-  PartialState,
-  SetStateOptions,
-} from "./types"
+import { GlobalState, GlobalStateOptions, SetStateOptions } from "./types"
 import updater from "./updater"
 import { createHook } from "./createHook"
 import { createReadOnlyHook } from "./createReadOnlyHook"
@@ -43,9 +38,8 @@ export const createGlobalState = <TState>(
 
   const useReadOnlyState = createReadOnlyHook(state$, state => state)
 
-  const createPartialState = <TPartial>(
-    project: (state: TState) => PartialState<TState, TPartial>
-  ) => createReadOnlyHook<TState, TPartial>(state$, project)
+  const createPartialState = <TPartial>(project: (state: TState) => TPartial) =>
+    createReadOnlyHook<TState, TPartial>(state$, project)
 
   return {
     useGlobalState,
