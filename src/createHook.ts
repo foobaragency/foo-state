@@ -1,10 +1,14 @@
 import { SetStateAction, useEffect, useState } from "react"
+
 import { Observable } from "./Observable"
 import { SetStateOptions } from "./types"
 
-export function createHook<T>(
-  state$: Observable<T>,
-  setGlobalState: (state: SetStateAction<T>, options?: SetStateOptions) => void
+export function createHook<TState>(
+  state$: Observable<TState>,
+  setGlobalState: (
+    state: SetStateAction<TState>,
+    options?: SetStateOptions
+  ) => void
 ) {
   return () => {
     const [state, setState] = useState(state$.value)
@@ -18,7 +22,10 @@ export function createHook<T>(
        * the reason for that is we only subscribe to the state$ if the component is mounted
        */
       const stateValueAfterMount = state$.value
-      state !== stateValueAfterMount && setState(stateValueAfterMount)
+
+      if (state !== stateValueAfterMount) {
+        setState(stateValueAfterMount)
+      }
 
       const subscription = state$.subscribe(setState)
 

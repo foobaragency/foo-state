@@ -67,6 +67,8 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.4.7",
     "jest-localstorage-mock": "^2.4.18",
     "prettier": "^2.2.1",

@@ -3,8 +3,8 @@ import { isEqual } from "./isEqual"
 import { PersistenceOptions } from "./types"
 import { Observable } from "./Observable"
 
-export function rehydrate<T>(
-  state$: Observable<T>,
+export function rehydrate<TState>(
+  state$: Observable<TState>,
   options: PersistenceOptions
 ) {
   const { key, type } = options
@@ -13,7 +13,7 @@ export function rehydrate<T>(
       ? globalThis.sessionStorage
       : globalThis.localStorage
 
-  const storage = new StorageItem<T>(key, storageLayer)
+  const storage = new StorageItem<TState>(key, storageLayer)
 
   const storedValue = storage.get()
 

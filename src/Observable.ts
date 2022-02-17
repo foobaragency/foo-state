@@ -5,7 +5,7 @@
 
 import { isBrowser } from "./isBrowser"
 
-export class Observable<S> {
+export class Observable<TState> {
   private static stateIndex = 0
 
   private static eventOptions: AddEventListenerOptions = {
@@ -16,13 +16,13 @@ export class Observable<S> {
 
   private readonly eventName = `${Observable.stateIndex++}-global-state-change`
 
-  constructor(private _value: S) {}
+  constructor(private _value: TState) {}
 
   get value() {
     return this._value
   }
 
-  next(value: S) {
+  next(value: TState) {
     if (value === this._value) {
       return
     }
@@ -34,7 +34,7 @@ export class Observable<S> {
     }
   }
 
-  subscribe(subscriber: (value: S) => void) {
+  subscribe(subscriber: (value: TState) => void) {
     const eventListener = () => subscriber(this._value)
     const eventName = this.eventName
 

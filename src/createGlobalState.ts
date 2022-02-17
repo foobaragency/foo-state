@@ -1,4 +1,5 @@
 import { SetStateAction } from "react"
+
 import { Observable } from "./Observable"
 import { isBrowser } from "./isBrowser"
 import { isEqual } from "./isEqual"
@@ -13,11 +14,11 @@ import updater from "./updater"
 import { createHook } from "./createHook"
 import { createReadOnlyHook } from "./createReadOnlyHook"
 
-export const createGlobalState = <S>(
-  initialState: S,
+export const createGlobalState = <TState>(
+  initialState: TState,
   options?: GlobalStateOptions
-): GlobalState<S> => {
-  const state$ = new Observable<S>(initialState)
+): GlobalState<TState> => {
+  const state$ = new Observable<TState>(initialState)
 
   if (options?.persistence?.key && isBrowser()) {
     rehydrate(state$, options?.persistence)
@@ -26,7 +27,7 @@ export const createGlobalState = <S>(
   const getGlobalState = () => state$.value
 
   const setGlobalState = (
-    state: SetStateAction<S>,
+    state: SetStateAction<TState>,
     options?: SetStateOptions
   ) => {
     if (options?.deepCompare) {
@@ -42,8 +43,9 @@ export const createGlobalState = <S>(
 
   const useReadOnlyState = createReadOnlyHook(state$, state => state)
 
-  const createPartialState = (project: (state: S) => PartialState<S>) =>
-    createReadOnlyHook(state$, project)
+  const createPartialState = <TPartial>(
+    project: (state: TState) => PartialState<TState, TPartial>
+  ) => createReadOnlyHook<TState, TPartial>(state$, project)
 
   return {
     useGlobalState,

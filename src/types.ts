@@ -13,17 +13,20 @@ export interface GlobalStateOptions {
   persistence?: PersistenceOptions
 }
 
-export type PartialState<T> = Partial<T> | keyof T
+export type PartialState<TState, TPartial> = TState | TPartial
 
-export interface GlobalState<T> {
+export interface GlobalState<TState> {
   useGlobalState: () => readonly [
-    T,
-    (state: SetStateAction<T>, options?: SetStateOptions) => void
+    TState,
+    (state: SetStateAction<TState>, options?: SetStateOptions) => void
   ]
-  useReadOnlyState: () => PartialState<T>
-  createPartialState: (
-    project: (state: T) => PartialState<T>
-  ) => () => PartialState<T>
-  getGlobalState: () => T
-  setGlobalState: (state: SetStateAction<T>, options?: SetStateOptions) => void
+  useReadOnlyState: () => PartialState<TState, TState>
+  createPartialState: <TPartial>(
+    project: (state: TState) => PartialState<TState, TPartial>
+  ) => () => PartialState<TState, TPartial>
+  getGlobalState: () => TState
+  setGlobalState: (
+    state: SetStateAction<TState>,
+    options?: SetStateOptions
+  ) => void
 }
