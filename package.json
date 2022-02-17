@@ -10,7 +10,7 @@
     ".": {
       "types": "./lib/esm/index.d.ts",
       "module": "./lib/esm/index.js",
-      "import": "./lib/cjs/index.js",
+      "import": "./lib/esm/index.js",
       "default": "./lib/cjs/index.js"
     }
   },
