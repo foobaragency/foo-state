@@ -7,3 +7,4 @@ lib
 .eslintcache
 .vscode/
 build
+examples/**/yarn.lock
