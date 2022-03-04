@@ -6,7 +6,7 @@ module.exports = {
   coverageReporters: ["json-summary", "lcov"],
   testEnvironment: "jsdom",
   moduleNameMapper: {
-    "^@foobar-agency/react-global-state(.*)$": "<rootDir>/lib/esm$1",
+    "^foo-state(.*)$": "<rootDir>/lib/esm$1",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   setupFiles: ["jest-localstorage-mock"],

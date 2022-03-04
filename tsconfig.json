@@ -21,7 +21,7 @@
       "es2020", "DOM"
     ],
     "paths": {
-      "@foobar-agency/react-global-state/*": ["src/*"]
+      "foo-state/*": ["src/*"]
     }
   },
   "include": ["./src"]

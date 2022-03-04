@@ -9,14 +9,14 @@ It can be used both with Typescript or Javascript.
 ## ⚙️ Installation
 
 ```bash
-npm install --save @foobar-agency/react-global-state
+npm install --save foo-state
 ```
 
 ## 🔌 Usage
 
 ### Example 1 - using as a hook
 ```jsx
-import { createGlobalState } from "@foobar-agency/react-global-state"
+import { createGlobalState } from "foo-state"
 
 const initialState = 0
 
@@ -53,7 +53,7 @@ const Counter = () => {
 ### Example 2 - using outside react
 
 ```jsx
-import { createGlobalState } from "@foobar-agency/react-global-state"
+import { createGlobalState } from "foo-state"
 
 const initialState = 0
 
@@ -92,7 +92,7 @@ const Counter = () => {
 
 ### Example 3 - Partial state hook
 ```jsx
-import { createGlobalState } from "@foobar-agency/react-global-state"
+import { createGlobalState } from "foo-state"
 
 const initialState = {
     firstName: "John",
@@ -115,7 +115,7 @@ const Age = () => {
 
 ### Example 4 - Persist state
 ```jsx
-import { createGlobalState } from "@foobar-agency/react-global-state"
+import { createGlobalState } from "foo-state"
 
 const initialState = {
     firstName: "John",
@@ -168,7 +168,7 @@ const Person = () => {
 
 ## Example 5 - Using deep comparison (useful for objects and arrays to prevent unnecessary re-renders)
 ```jsx
-import { createGlobalState } from "@foobar-agency/react-global-state"
+import { createGlobalState } from "foo-state"
 
 const initialState = {
   firstName: "John",
@@ -203,7 +203,7 @@ const Profile = () => {
 
 ## Example 6 - With typescript
 ```tsx
-import { createGlobalState } from "@foobar-agency/react-global-state"
+import { createGlobalState } from "foo-state"
 
 type Person = {
   firstName: string

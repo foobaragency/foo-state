@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { createGlobalState } from "@foobar-agency/react-global-state"
+import { createGlobalState } from "foo-state"
 
 const initialState = 0
 

@@ -21,7 +21,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@foobar-agency/react-global-state": ["../../lib/esm/index"]
+      "foo-state": ["../../lib/esm/index"]
     }
   },
   "include": [
