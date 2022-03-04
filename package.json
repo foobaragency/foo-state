@@ -1,5 +1,5 @@
 {
-  "name": "@foobar-agency/react-global-state",
+  "name": "foostate",
   "version": "0.0.0-semantically-released",
   "description": "A simple yet powerful library for managing global states with react",
   "main": "./lib/cjs/index.js",
@@ -25,6 +25,7 @@
     "stateless",
     "global"
   ],
+  "author": "foobar Agency GmbH",
   "license": "MIT",
   "repository": {
     "type": "git",
