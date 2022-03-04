@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@foobar-agency/react-global-state": "latest",
+    "foo-state": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest"
