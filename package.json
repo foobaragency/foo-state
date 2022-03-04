@@ -1,5 +1,5 @@
 {
-  "name": "foostate",
+  "name": "foo-state",
   "version": "0.0.0-semantically-released",
   "description": "A simple yet powerful library for managing global states with react",
   "main": "./lib/cjs/index.js",
