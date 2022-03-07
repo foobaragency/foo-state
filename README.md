@@ -1,6 +1,6 @@
 [![build](https://github.com/foobaragency/react-global-state/actions/workflows/build.yml/badge.svg)](https://github.com/foobaragency/react-global-state/actions/workflows/build.yml)
 ![Total coverage](./badges/coverage-jest%20coverage.svg)
-# react-global-state
+# foo-state 
 
 This package consists of simple global states made possible by observing browser events. It works well when you need to use global states in a react or next.js app.
 
