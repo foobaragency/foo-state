@@ -128,7 +128,7 @@ const { useGlobalState } = createGlobalState(initialState, {
       key: "x-storage-key",
       // optional, defaults to localStorage
       // localStorage or sessionStorage
-      storage: "localStorage",
+      type: "localStorage",
   }
 })
 
