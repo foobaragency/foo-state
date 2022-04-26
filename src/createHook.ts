@@ -8,18 +8,17 @@ export function createHook<TState>(
   setGlobalState: (
     state: SetStateAction<TState>,
     options?: SetStateOptions
-  ) => void
+  ) => void,
+  initialState: TState
 ) {
   return () => {
-    const [state, setState] = useState(state$.value)
+    const [state, setState] = useState<TState>(initialState)
 
     useEffect(() => {
       /**
-       * Update the current state after mounting the component:
-       * It is possible that the initial state is empty before mounting
-       * if that's the case we return an empty state which is not updated
-       * through the subscription during the first mounting if setGlobalState is called
-       * the reason for that is we only subscribe to the state$ if the component is mounted
+       * We use the `initialState` value and only update the state after mounting the component.
+       * This helps us keep a consistent and predictable state between server and client rendering
+       *  consequently avoiding a possible hydration mismatch.
        */
       const stateValueAfterMount = state$.value
 
