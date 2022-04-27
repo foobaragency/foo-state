@@ -34,7 +34,7 @@ export const createGlobalState = <TState>(
     state$.next(updater(state$.value, state))
   }
 
-  const useGlobalState = createHook(state$, setGlobalState, initialState)
+  const useGlobalState = createHook(state$, setGlobalState)
 
   const useReadOnlyState = createReadOnlyHook(state$, state => state)
 

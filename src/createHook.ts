@@ -8,11 +8,10 @@ export function createHook<TState>(
   setGlobalState: (
     state: SetStateAction<TState>,
     options?: SetStateOptions
-  ) => void,
-  initialState: TState
+  ) => void
 ) {
   return () => {
-    const [state, setState] = useState<TState>(initialState)
+    const [state, setState] = useState<TState>(state$.initializationValue)
 
     useEffect(() => {
       /**
