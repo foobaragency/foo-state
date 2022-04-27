@@ -1,6 +1,7 @@
-import { SetStateAction, useEffect, useState } from "react"
+import { SetStateAction } from "react"
 
 import { Observable } from "./Observable"
+import { createReadOnlyHook } from "./createReadOnlyHook"
 import { SetStateOptions } from "./types"
 
 export function createHook<TState>(
@@ -10,28 +11,10 @@ export function createHook<TState>(
     options?: SetStateOptions
   ) => void
 ) {
+  const useReadOnlyState = createReadOnlyHook(state$, state => state);
+
   return () => {
-    const [state, setState] = useState<TState>(state$.initializationValue)
-
-    useEffect(() => {
-      /**
-       * We use the `initialState` value and only update the state after mounting the component.
-       * This helps us keep a consistent and predictable state between server and client rendering
-       *  consequently avoiding a possible hydration mismatch.
-       */
-      const stateValueAfterMount = state$.value
-
-      if (state !== stateValueAfterMount) {
-        setState(stateValueAfterMount)
-      }
-
-      const subscription = state$.subscribe(setState)
-
-      return () => subscription.unsubscribe()
-
-      // we don't want to rerun on state change
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    const state = useReadOnlyState()
 
     return [state, setGlobalState] as const
   }
