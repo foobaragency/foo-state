@@ -5,7 +5,7 @@ import { isBrowser } from "./isBrowser"
 import { isEqual } from "./isEqual"
 import { rehydrate } from "./rehydrate"
 import { GlobalState, GlobalStateOptions, SetStateOptions } from "./types"
-import updater from "./updater"
+import stateInputValueResolver from "./stateInputValueResolver"
 import { createHook } from "./createHook"
 import { createReadOnlyHook } from "./createReadOnlyHook"
 
@@ -31,7 +31,7 @@ export const createGlobalState = <TState>(
       }
     }
 
-    state$.next(updater(state$.value, state))
+    state$.next(stateInputValueResolver(state$.value, state))
   }
 
   const useGlobalState = createHook(state$, setGlobalState)
