@@ -25,13 +25,15 @@ export const createGlobalState = <TState>(
     state: SetStateAction<TState>,
     options?: SetStateOptions
   ) => {
+    const nextState = stateInputValueResolver(state$.value, state)
+
     if (options?.deepCompare) {
-      if (isEqual(state$.value, state)) {
+      if (isEqual(state$.value, nextState)) {
         return
       }
     }
 
-    state$.next(stateInputValueResolver(state$.value, state))
+    state$.next(nextState)
   }
 
   const useGlobalState = createHook(state$, setGlobalState)
