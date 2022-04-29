@@ -10,10 +10,11 @@ import { createHook } from "./createHook"
 import { createReadOnlyHook } from "./createReadOnlyHook"
 
 export const createGlobalState = <TState>(
-  initialState: TState,
+  initialState: TState | (() => TState),
   options?: GlobalStateOptions
 ): GlobalState<TState> => {
-  const state$ = new Observable<TState>(initialState)
+  const initialValue = stateInputValueResolver(undefined, initialState)
+  const state$ = new Observable<TState>(initialValue)
 
   if (options?.persistence?.key && isBrowser()) {
     rehydrate(state$, options?.persistence)
