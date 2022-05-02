@@ -15,8 +15,17 @@ export class Observable<TState> {
   }
 
   private readonly eventName = `${Observable.stateIndex++}-global-state-change`
+  private readonly _initializationValue: TState
+  private _value: TState
 
-  constructor(private _value: TState) {}
+  constructor(value: TState) {
+    this._initializationValue = value
+    this._value = value
+  }
+
+  get initializationValue() {
+    return this._initializationValue
+  }
 
   get value() {
     return this._value

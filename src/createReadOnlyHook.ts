@@ -7,10 +7,21 @@ export function createReadOnlyHook<TState, TPartial>(
   project: (state: TState) => TPartial
 ) {
   return () => {
-    const [state, setState] = useState(project(state$.value))
+    const [state, setState] = useState(project(state$.initializationValue))
 
     useEffect(() => {
-      const subscription = state$.subscribe(state => setState(project(state)))
+      /**
+       * We use the `initialState` value and only update the state after mounting the component.
+       * This helps us keep a consistent and predictable state between server and client rendering
+       *  consequently avoiding a possible hydration mismatch.
+       */
+       const stateValueAfterMount = project(state$.value)
+
+       if (state !== stateValueAfterMount) {
+         setState(stateValueAfterMount)
+       }
+
+      const subscription = state$.subscribe(observedState => setState(project(observedState)))
 
       return () => subscription.unsubscribe()
     }, [])
