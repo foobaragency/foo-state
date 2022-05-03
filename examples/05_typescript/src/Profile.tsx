@@ -6,7 +6,6 @@ type Person = {
   age: number
 }
 
-// We can also do lazy initialization
 const { useGlobalState } = createGlobalState<Person>(() => ({
   firstName: "John",
   lastName: "Doe",
