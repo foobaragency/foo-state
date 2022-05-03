@@ -7,7 +7,6 @@ export function createReadOnlyHook<TState, TPartial>(
   project: (state: TState) => TPartial
 ) {
 
-  // We want to set the value as-is and avoid React resolving in case it is a function
   /**
    * If the value passed by the user is a function, we are already resolving it previously.
    * Therefore, we want to set the value as is, and thus, we wrap it in a callback so React resolved to our value.
