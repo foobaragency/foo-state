@@ -1,9 +1,9 @@
 const isFunction = (value: unknown): value is Function => typeof value === 'function'
 
-const stateInputValueResolver = <CurrentValue, NextValue = CurrentValue>(
-  currentValue: CurrentValue,
-  nextValue: NextValue | ((prevState: CurrentValue) => NextValue)
-): NextValue => {
+const stateInputValueResolver = <TState, TValue = TState>(
+  currentValue: TState,
+  nextValue: TValue | ((prevState: TState) => TValue)
+): TValue => {
   return isFunction(nextValue) ? nextValue(currentValue) : nextValue
 }
 
