@@ -5,15 +5,16 @@ import { isBrowser } from "./isBrowser"
 import { isEqual } from "./isEqual"
 import { rehydrate } from "./rehydrate"
 import { GlobalState, GlobalStateOptions, SetStateOptions } from "./types"
-import updater from "./updater"
+import stateInputValueResolver from "./stateInputValueResolver"
 import { createHook } from "./createHook"
 import { createReadOnlyHook } from "./createReadOnlyHook"
 
 export const createGlobalState = <TState>(
-  initialState: TState,
+  initialState: TState | (() => TState),
   options?: GlobalStateOptions
 ): GlobalState<TState> => {
-  const state$ = new Observable<TState>(initialState)
+  const initialValue = stateInputValueResolver(undefined, initialState)
+  const state$ = new Observable<TState>(initialValue)
 
   if (options?.persistence?.key && isBrowser()) {
     rehydrate(state$, options?.persistence)
@@ -25,13 +26,15 @@ export const createGlobalState = <TState>(
     state: SetStateAction<TState>,
     options?: SetStateOptions
   ) => {
+    const nextState = stateInputValueResolver(state$.value, state)
+
     if (options?.deepCompare) {
-      if (isEqual(state$.value, state)) {
+      if (isEqual(state$.value, nextState)) {
         return
       }
     }
 
-    state$.next(updater(state$.value, state))
+    state$.next(nextState)
   }
 
   const useGlobalState = createHook(state$, setGlobalState)
