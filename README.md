@@ -329,9 +329,9 @@ npm install --save foo-state
 createGlobalState<S>(initialState: S | () => S, options: GlobalStateOptions): GlobalState
 ```
 
-This is the only function you will need to use this library.
+This is, most probably, the only function you will need to use from this library.
 #### Params
-The initial state can be either a `value` or a `function`.
+The initial state can be either a `value` or a `function` that resolves to a value. This mirrors the [`useState` API](https://reactjs.org/docs/hooks-reference.html#usestate).
 
 The library tries to infer the type as much as possible, but you can also specify the type:
 
@@ -341,19 +341,19 @@ type Person = {}
 const state = createGlobalState<Person>({})
 ```
 
-The `options` parameter reference can be found [here](./docs/interfaces/GlobalStateOptions.md).
+You can always [read more about the `options` parameter for `createGlobalState`](./docs/interfaces/GlobalStateOptions.md).
 
 #### Returned functions
 
-+ `useGlobalState` - This is a normal react hook that can be used inside any component to access or change the state.
++ `useGlobalState` - This react hook can be used inside any functional component to access or change the state.
 
-+ `useReadOnlyState` - This hook returns the current state only. It doesn't give you access to the `setState` function.
++ `useReadOnlyState` - This react hook doesn't give you access to the `setState` function, instead it only returns the current state.
 
-+ `createPartialState` - This function will return a read only hook with a custom partial state. [See example](#3---partial-state-hook)
++ `createPartialState` - This function will return a read only react hook with a custom partial state. [See example of `createPartialState`](#3---partial-state-hook)
 
-+ `getGlobalState` - This function returns the current state and can be used anywhere in you application, not only inside react components.[See example](#2---using-outside-react)
++ `getGlobalState` - This function returns the current state and can be used anywhere in you application, not only inside react components.[See example of `getGlobalState`](#2---using-outside-react)
 
-+ `setGlobalState` - This function allows you to change the state and can be used anywhere in you application, not only inside react components.[See example](#2---using-outside-react)
++ `setGlobalState` - This function allows you to change the state and can be used anywhere in you application, not only inside react components.[See example of `setGlobalState`](#2---using-outside-react)
 
 ## 👥 Contributing
 
