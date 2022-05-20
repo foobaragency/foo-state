@@ -6,240 +6,354 @@ This package consists of simple global states made possible by observing browser
 
 It can be used both with Typescript or Javascript.
 
+## Table of contents
+
+1. [Installation](#⚙️-installation)
+2. [Examples](#🔌-examples)
+    1. [Using as a hook](#1---using-as-a-hook)
+    2. [Using outside React](#2---using-outside-react)
+    3. [Partial state hook](#3---partial-state-hook)
+    4. [Persist state](#4---persist-state)
+    5. [Using deep comparison](#5---using-deep-comparison-useful-for-objects-and-arrays-to-prevent-unnecessary-re-renders)
+    6. [With lazy initialization](#6---with-lazy-initialization)
+    7. [Using with TypeScript](#7---with-typescript)
+3. [API Reference](#api-reference)
+4. [Contributing](#👥-contributing)
+5. [License](#🏛-license)
+
 ## ⚙️ Installation
 
 ```bash
 npm install --save foo-state
 ```
 
-## 🔌 Usage
+## 🔌 Examples
 
-### Example 1 - using as a hook
-```jsx
-import { createGlobalState } from "foo-state"
+### 1 - using as a hook
+<details>
+  <summary>See code</summary>
 
-const initialState = 0
+  ```jsx
+  import { createGlobalState } from "foo-state"
 
-const { useGlobalState } = createGlobalState(initialState)
+  const initialState = 0
 
-const Counter = () => {
-  const [count, setCount] = useGlobalState()
+  const { useGlobalState } = createGlobalState(initialState)
 
-  const increment = () => {
-    setCount(count + 1)
-  }
+  const Counter = () => {
+    const [count, setCount] = useGlobalState()
 
-  const decrement = () => {
-    // you can also use callback functions
-    setCount((state) => {
-      if (state > 0) {
-        return state - 1
-      }
+    const increment = () => {
+      setCount(count + 1)
+    }
 
-      return state
-    })
-  }
+    const decrement = () => {
+      // you can also use callback functions
+      setCount((state) => {
+        if (state > 0) {
+          return state - 1
+        }
 
-  return (
-    <div>
-      <button onClick={decrement}>-</button>
-      <span>{count}</span>
-      <button onClick={increment}>+</button>
-    </div>
-  )
-}
-```
-
-### Example 2 - using outside react
-
-```jsx
-import { createGlobalState } from "foo-state"
-
-const initialState = 0
-
-const { useGlobalState, setGlobalState } = createGlobalState(initialState)
-
-function setInitialState() {
-  setTimeout(() => {
-    setGlobalState(10_000)
-  }, 2_000)
-}
-
-const Counter = () => {
-  const [count, setCount] = useGlobalState()
-
-  useEffect(() => {
-    setInitialState()
-  }, [])
-
-  const decrement = () => {
-    setCount(count - 1)
-  }
-
-  const increment = () => {
-    setCount(count + 1)
-  }
-
-  return (
-    <div>
-      <button onClick={decrement}>-</button>
-      <span>{count}</span>
-      <button onClick={increment}>+</button>
-    </div>
-  )
-}
-```
-
-### Example 3 - Partial state hook
-```jsx
-import { createGlobalState } from "foo-state"
-
-const initialState = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 43
-}
-
-const { createPartialState } = createGlobalState(initialState)
-
-const useAge = createPartialState(state => state.age)
-
-const Age = () => {
-    const age = useAge()
-
-    return (
-        <div>{age}</div>
-    )
-}
-```
-
-### Example 4 - Persist state
-```jsx
-import { createGlobalState } from "foo-state"
-
-const initialState = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 43
-}
-
-const { useGlobalState } = createGlobalState(initialState, {
-  persistence: {
-      key: "x-storage-key",
-      // optional, defaults to localStorage
-      // localStorage or sessionStorage
-      type: "localStorage",
-  }
-})
-
-const Person = () => {
-    const [person, setPerson] = useGlobalState()
-
-    function onChange(e){
-      const {name, value} = e.target
-
-      setPerson({
-        ...person,
-        [name]: value
+        return state
       })
     }
 
     return (
-        <div>
-          <label>
-            First Name
-            <br />
-           <input name="firstName" value={person.firstName} onChange={onChange} />
-          </label>
-          <label>
-            Last Name
-            <br />
-           <input name="lastName" value={person.lastName} onChange={onChange} />
-          </label>
-          <label>
-            Age
-            <br />
-           <input name="age" value={person.age} onChange={onChange} />
-          </label>
-        </div>
+      <div>
+        <button onClick={decrement}>-</button>
+        <span>{count}</span>
+        <button onClick={increment}>+</button>
+      </div>
     )
-}
-```
+  }
+  ```
+</details>
 
-## Example 5 - Using deep comparison (useful for objects and arrays to prevent unnecessary re-renders)
-```jsx
-import { createGlobalState } from "foo-state"
+### 2 - using outside react
 
-const initialState = {
-  firstName: "John",
-  lastName: "Doe",
-  age: 43,
-}
+<details>
+  <summary>See code</summary>
 
-const { useGlobalState } = createGlobalState(initialState)
+  ```jsx
+  import { createGlobalState } from "foo-state"
 
-const Profile = () => {
-  const [state, setState] = useGlobalState()
+  const initialState = 0
 
-  function invertNames() {
-    const newState = {
-      firstName: "Doe",
-      lastName: "John",
-      age: 43,
-    }
-    setState(newState, { deepCompare: true })
+  const { useGlobalState, setGlobalState } = createGlobalState(initialState)
+
+  function setInitialState() {
+    setTimeout(() => {
+      setGlobalState(10_000)
+    }, 2_000)
   }
 
-  return (
-    <div>
-      <p>First Name: {state.firstName}</p>
-      <p>Last Name: {state.lastName}</p>
-      <p>Age: {state.age}</p>
-      <button onClick={invertNames}>Click me!</button>
-    </div>
-  )
-}
-```
+  const Counter = () => {
+    const [count, setCount] = useGlobalState()
 
-## Example 6 - With typescript
-```tsx
-import { createGlobalState } from "foo-state"
+    useEffect(() => {
+      setInitialState()
+    }, [])
 
-type Person = {
-  firstName: string
-  lastName: string
-  age: number
-}
+    const decrement = () => {
+      setCount(count - 1)
+    }
 
-const { useGlobalState } = createGlobalState<Person>({
-  firstName: "John",
-  lastName: "Doe",
-  // string is not assignable to type number
-  age: "43"
-})
-
-const Profile = () => {
-    const [state, setState] = useGlobalState()
-
-    function invertNames() {
-        const newState = {
-             firstName: "Doe",
-            lastName: "John",
-            age: 43,
-        }
-        setState(newState, {deepCompare: true})
+    const increment = () => {
+      setCount(count + 1)
     }
 
     return (
-        <div>
-            <p>First Name: {state.firstName}</p>
-            <p>Last Name: {state.lastName}</p>
-            <p>Age: {state.age}</p>
-            <button onClick={invertNames}>Click me!</button>
-        </div>
+      <div>
+        <button onClick={decrement}>-</button>
+        <span>{count}</span>
+        <button onClick={increment}>+</button>
+      </div>
     )
-}
+  }
+  ```
+</details>
+
+### 3 - partial state hook
+
+<details>
+  <summary>See code</summary>
+
+  ```jsx
+  import { createGlobalState } from "foo-state"
+
+  const initialState = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 43
+  }
+
+  const { createPartialState } = createGlobalState(initialState)
+
+  const useAge = createPartialState(state => state.age)
+
+  const Age = () => {
+      const age = useAge()
+
+      return (
+          <div>{age}</div>
+      )
+  }
+  ```
+</details>
+
+### 4 - persist state
+
+<details>
+  <summary>See code</summary>
+
+  ```jsx
+  import { createGlobalState } from "foo-state"
+
+  const initialState = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 43
+  }
+
+  const { useGlobalState } = createGlobalState(initialState, {
+    persistence: {
+        key: "x-storage-key",
+        // optional, defaults to localStorage
+        // localStorage or sessionStorage
+        type: "localStorage",
+    }
+  })
+
+  const Person = () => {
+      const [person, setPerson] = useGlobalState()
+
+      function onChange(e){
+        const {name, value} = e.target
+
+        setPerson({
+          ...person,
+          [name]: value
+        })
+      }
+
+      return (
+          <div>
+            <label>
+              First Name
+              <br />
+            <input name="firstName" value={person.firstName} onChange={onChange} />
+            </label>
+            <label>
+              Last Name
+              <br />
+            <input name="lastName" value={person.lastName} onChange={onChange} />
+            </label>
+            <label>
+              Age
+              <br />
+            <input name="age" value={person.age} onChange={onChange} />
+            </label>
+          </div>
+      )
+  }
+  ```
+</details>
+
+### 5 - using deep comparison (useful for objects and arrays to prevent unnecessary re-renders)
+
+<details>
+  <summary>See code</summary>
+
+  ```jsx
+  import { createGlobalState } from "foo-state"
+
+  const initialState = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 43,
+  }
+
+  const { useGlobalState } = createGlobalState(initialState)
+
+  const Profile = () => {
+    const [state, setState] = useGlobalState()
+
+    function invertNames() {
+      const newState = {
+        firstName: "Doe",
+        lastName: "John",
+        age: 43,
+      }
+      setState(newState, { deepCompare: true })
+    }
+
+    return (
+      <div>
+        <p>First Name: {state.firstName}</p>
+        <p>Last Name: {state.lastName}</p>
+        <p>Age: {state.age}</p>
+        <button onClick={invertNames}>Click me!</button>
+      </div>
+    )
+  }
+  ```
+</details>
+
+### 6 - With lazy initialization
+
+<details>
+  <summary>See code</summary>
+
+  ```jsx
+  function heavyCalculation() {
+    const user = {
+      name: 'John',
+      birthday: new Date('1995-03-15')
+    }
+
+    // let's pretend we're getting a correct age here
+    const age = new Date().getFullYear() - user.birthday.getFullYear()
+
+    return {
+      name: user.name,
+      age,
+    }
+  }
+
+
+  const {useGlobalState} = createGlobalState(heavyCalculation)
+
+  const Profile = () => {
+    const [state] = useGlobalState()
+
+    return (
+      <div>
+        <p>Name: {state.name}</p>
+        <p>Age: {state.age}</p>
+      </div>
+    )
+  }
+  ```
+</details>
+
+### 7 - With typescript
+
+<details>
+  <summary>See code</summary>
+
+  ```tsx
+  import { createGlobalState } from "foo-state"
+
+  type Person = {
+    firstName: string
+    lastName: string
+    age: number
+  }
+
+  const { useGlobalState } = createGlobalState<Person>({
+    firstName: "John",
+    lastName: "Doe",
+    // string is not assignable to type number
+    age: "43"
+  })
+
+  const Profile = () => {
+      const [state, setState] = useGlobalState()
+
+      function invertNames() {
+          const newState = {
+              firstName: "Doe",
+              lastName: "John",
+              age: 43,
+          }
+          setState(newState, {deepCompare: true})
+      }
+
+      return (
+          <div>
+              <p>First Name: {state.firstName}</p>
+              <p>Last Name: {state.lastName}</p>
+              <p>Age: {state.age}</p>
+              <button onClick={invertNames}>Click me!</button>
+          </div>
+      )
+  }
+  ```
+</details>
+
+## API Reference
+
+### createGlobalState
+
+```ts
+createGlobalState<S>(initialState: S | () => S, options: GlobalStateOptions): GlobalState
 ```
+
+This is the only function you will need to use this library.
+#### Params
+The initial state can be either a `value` or a `function`.
+
+The library tries to infer the type as much as possible, but you can also specify the type:
+
+```ts
+type Person = {}
+
+const state = createGlobalState<Person>({})
+```
+
+The `options` parameter reference can be found [here](./docs/interfaces/GlobalStateOptions.md).
+
+#### Returned functions
+
++ `useGlobalState` - This is a normal react hook that can be used inside any component to access or change the state.
+
++ `useReadOnlyState` - This hook returns the current state only. It doesn't give you access to the `setState` function.
+
++ `createPartialState` - This function will return a read only hook with a custom partial state. [See example](#3---partial-state-hook)
+
++ `getGlobalState` - This function returns the current state and can be used anywhere in you application, not only inside react components.[See example](#2---using-outside-react)
+
++ `setGlobalState` - This function allows you to change the state and can be used anywhere in you application, not only inside react components.[See example](#2---using-outside-react)
 
 ## 👥 Contributing
 
