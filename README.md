@@ -1,6 +1,6 @@
 [![build](https://github.com/foobaragency/react-global-state/actions/workflows/build.yml/badge.svg)](https://github.com/foobaragency/react-global-state/actions/workflows/build.yml)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![Total coverage](./badges/coverage-jest%20coverage.svg)
 # foo-state 
@@ -382,6 +382,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/afennert"><img src="https://avatars.githubusercontent.com/u/33861227?v=4?s=100" width="100px;" alt=""/><br /><sub><b>afennert</b></sub></a><br /><a href="https://github.com/foobaragency/foo-state/commits?author=afennert" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Segebre"><img src="https://avatars.githubusercontent.com/u/10774915?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Juan Enrique Segebre Zaghmout</b></sub></a><br /><a href="https://github.com/foobaragency/foo-state/commits?author=segebre" title="Code">💻</a> <a href="#maintenance-segebre" title="Maintenance">🚧</a> <a href="https://github.com/foobaragency/foo-state/commits?author=segebre" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/seanowenhayes"><img src="https://avatars.githubusercontent.com/u/3706358?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sean Hayes</b></sub></a><br /><a href="https://github.com/foobaragency/foo-state/commits?author=seanowenhayes" title="Documentation">📖</a> <a href="https://github.com/foobaragency/foo-state/commits?author=seanowenhayes" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/seblondono"><img src="https://avatars.githubusercontent.com/u/20850740?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sebastian Londono</b></sub></a><br /><a href="https://github.com/foobaragency/foo-state/pulls?q=is%3Apr+reviewed-by%3Aseblondono" title="Reviewed Pull Requests">👀</a> <a href="#ideas-seblondono" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
