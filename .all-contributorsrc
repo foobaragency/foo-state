@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "n4bb12",
+      "name": "Abraham Schilling",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6810177?v=4",
+      "profile": "https://github.com/n4bb12",
+      "contributions": [
+        "design",
+        "mentoring",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "foo-state",
+  "projectOwner": "foobaragency",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
