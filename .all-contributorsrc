@@ -45,6 +45,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "segebre",
+      "name": "Juan Enrique Segebre Zaghmout",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10774915?v=4",
+      "profile": "https://github.com/Segebre",
+      "contributions": [
+        "code",
+        "maintenance",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
