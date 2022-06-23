@@ -1,6 +1,6 @@
 [![build](https://github.com/foobaragency/react-global-state/actions/workflows/build.yml/badge.svg)](https://github.com/foobaragency/react-global-state/actions/workflows/build.yml)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![Total coverage](./badges/coverage-jest%20coverage.svg)
 # foo-state 
@@ -380,6 +380,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/kaiserbock"><img src="https://avatars.githubusercontent.com/u/730195?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniel Bock</b></sub></a><br /><a href="#design-kaiserbock" title="Design">🎨</a> <a href="https://github.com/foobaragency/foo-state/commits?author=kaiserbock" title="Code">💻</a></td>
     <td align="center"><a href="https://leniac.dev"><img src="https://avatars.githubusercontent.com/u/7433159?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lenilson "Lenny" Nascimento</b></sub></a><br /><a href="https://github.com/foobaragency/foo-state/commits?author=l-Leniac-l" title="Code">💻</a> <a href="https://github.com/foobaragency/foo-state/commits?author=l-Leniac-l" title="Documentation">📖</a> <a href="#maintenance-l-Leniac-l" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://github.com/afennert"><img src="https://avatars.githubusercontent.com/u/33861227?v=4?s=100" width="100px;" alt=""/><br /><sub><b>afennert</b></sub></a><br /><a href="https://github.com/foobaragency/foo-state/commits?author=afennert" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Segebre"><img src="https://avatars.githubusercontent.com/u/10774915?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Juan Enrique Segebre Zaghmout</b></sub></a><br /><a href="https://github.com/foobaragency/foo-state/commits?author=segebre" title="Code">💻</a> <a href="#maintenance-segebre" title="Maintenance">🚧</a> <a href="https://github.com/foobaragency/foo-state/commits?author=segebre" title="Documentation">📖</a></td>
   </tr>
 </table>
 
