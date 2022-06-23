@@ -15,6 +15,16 @@
         "mentoring",
         "code"
       ]
+    },
+    {
+      "login": "kaiserbock",
+      "name": "Daniel Bock",
+      "avatar_url": "https://avatars.githubusercontent.com/u/730195?v=4",
+      "profile": "https://github.com/kaiserbock",
+      "contributions": [
+        "design",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
