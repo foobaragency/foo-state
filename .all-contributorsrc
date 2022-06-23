@@ -56,6 +56,16 @@
         "maintenance",
         "doc"
       ]
+    },
+    {
+      "login": "seanowenhayes",
+      "name": "Sean Hayes",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3706358?v=4",
+      "profile": "https://github.com/seanowenhayes",
+      "contributions": [
+        "doc",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
