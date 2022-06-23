@@ -36,6 +36,15 @@
         "doc",
         "maintenance"
       ]
+    },
+    {
+      "login": "afennert",
+      "name": "afennert",
+      "avatar_url": "https://avatars.githubusercontent.com/u/33861227?v=4",
+      "profile": "https://github.com/afennert",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
