@@ -7270,9 +7270,9 @@ type-fest@^1.0.2:
   integrity sha512-yGSza74xk0UG8k+pLh5oeoYirvIiWo5t0/o3zHHAO2tRDiZcxWP7fywNlXhqb6/r6sWvwi+RsyQMWhVLe4BVuA==
 
 typedoc-plugin-markdown@^3.11.13:
-  version "3.13.2"
-  resolved "https://registry.yarnpkg.com/typedoc-plugin-markdown/-/typedoc-plugin-markdown-3.13.2.tgz#988846ab68365ef215fbae35a75745fa7641a8af"
-  integrity sha512-WpP+XW4TZ7yVIM9jSjTWUznZitXWY8OwSVRZAu65+lOI6tiIeUYEsgiFzIdGjNcWbwD6THNcJqATDoMVIp9RKw==
+  version "3.13.3"
+  resolved "https://registry.yarnpkg.com/typedoc-plugin-markdown/-/typedoc-plugin-markdown-3.13.3.tgz#4a242b1927e5f06f3bacfd7d6e38204b1d2a13ac"
+  integrity sha512-KKvFkQphRcH26NoBCKjjZ7a3rkPBQAOuWg1F4s+snDSWXfTyGWO5isgoe19VUbG87W8X/0x3uc/O0Nj7Qle3TQ==
   dependencies:
     handlebars "^4.7.7"
 
