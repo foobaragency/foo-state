@@ -71,7 +71,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^28.0.2",
-    "jest-environment-jsdom": "^28.0.2",
+    "jest-environment-jsdom": "^29.0.0",
     "jest-localstorage-mock": "^2.4.18",
     "prettier": "^2.2.1",
     "react": "^18.0.0",
