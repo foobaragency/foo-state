@@ -1,6 +1,6 @@
 import React from "react"
 
-import { render, fireEvent, screen, waitFor } from "@testing-library/react"
+import { render, act, fireEvent, screen, waitFor } from "@testing-library/react"
 
 import { Counter } from "../examples/01_outside_react/src/Counter"
 
@@ -18,7 +18,7 @@ describe("Outside react:", () => {
   test("should have value of 10000 after timeout", async () => {
     render(<Counter />)
 
-    jest.runAllTimers()
+    act(() => jest.runAllTimers())
 
     await waitFor(() => expect(screen.getByText("10000")).toBeInTheDocument())
   })
@@ -26,10 +26,12 @@ describe("Outside react:", () => {
   test("clicking the '+' button increments the state by 1", async () => {
     render(<Counter />)
 
-    jest.runAllTimers()
+    act(() => jest.runAllTimers())
 
-    fireEvent.click(screen.getByText("+"))
-    fireEvent.click(screen.getByText("+"))
+    act(() => {
+      fireEvent.click(screen.getByText("+"))
+      fireEvent.click(screen.getByText("+"))
+    })
 
     await waitFor(() => expect(screen.getByText("10002")).toBeInTheDocument())
   })
@@ -37,10 +39,12 @@ describe("Outside react:", () => {
   test("cliking the '-' button decrements the state by 1", async () => {
     render(<Counter />)
 
-    jest.runAllTimers()
+    act(() => jest.runAllTimers())
 
-    fireEvent.click(screen.getByText("-"))
-    fireEvent.click(screen.getByText("-"))
+    act(() => {
+      fireEvent.click(screen.getByText("-"))
+      fireEvent.click(screen.getByText("-"))
+    })
 
     await waitFor(() => expect(screen.getByText("9998")).toBeInTheDocument())
   })

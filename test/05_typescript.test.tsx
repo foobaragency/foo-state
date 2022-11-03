@@ -1,6 +1,6 @@
 import React from "react"
 
-import { render, fireEvent, screen } from "@testing-library/react"
+import { render, act, fireEvent, screen } from "@testing-library/react"
 
 import { Profile } from "../examples/05_typescript/src/Profile"
 
@@ -16,7 +16,7 @@ describe("Deep compare:", () => {
     expect(firstName).toHaveTextContent("First Name: John")
     expect(lastName).toHaveTextContent("Last Name: Doe")
 
-    fireEvent.click(screen.getByText("Click me!"))
+    act(() => fireEvent.click(screen.getByText("Click me!")))
 
     expect(firstName).toHaveTextContent("First Name: Doe")
     expect(lastName).toHaveTextContent("Last Name: John")
