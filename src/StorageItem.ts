@@ -30,7 +30,9 @@ export class StorageItem<T> {
     }
     try {
       const json = stringify(value)
-      this.storage.setItem(this.key, json)
+      if (json) {
+        this.storage.setItem(this.key, json)
+      }
     } catch (error) {
       console.error(error)
     }
