@@ -3,9 +3,8 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: weekly
-      day: friday
-      time: "08:00"
+      interval: "monthly"
+      time: "10:00"
       timezone: Europe/Berlin
     labels:
       - "dependencies"
