@@ -1,6 +1,6 @@
+import { BehaviorSubject } from "rxjs"
 import { SetStateAction } from "react"
 
-import { Observable } from "./Observable"
 import { isBrowser } from "./isBrowser"
 import { isEqual } from "./isEqual"
 import { rehydrate } from "./rehydrate"
@@ -14,7 +14,7 @@ export const createGlobalState = <TState>(
   options?: GlobalStateOptions
 ): GlobalState<TState> => {
   const initialValue = stateInputValueResolver(undefined, initialState)
-  const state$ = new Observable<TState>(initialValue)
+  const state$ = new BehaviorSubject<TState>(initialValue)
 
   if (options?.persistence?.key && isBrowser()) {
     rehydrate(state$, options?.persistence)

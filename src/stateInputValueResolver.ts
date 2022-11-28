@@ -1,4 +1,5 @@
-const isFunction = (value: unknown): value is Function => typeof value === 'function'
+const isFunction = (value: unknown): value is Function =>
+  typeof value === "function"
 
 const stateInputValueResolver = <TState, TValue = TState>(
   currentValue: TState,

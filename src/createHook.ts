@@ -1,17 +1,17 @@
 import { SetStateAction } from "react"
+import { BehaviorSubject } from "rxjs"
 
-import { Observable } from "./Observable"
 import { createReadOnlyHook } from "./createReadOnlyHook"
 import { SetStateOptions } from "./types"
 
 export function createHook<TState>(
-  state$: Observable<TState>,
+  state$: BehaviorSubject<TState>,
   setGlobalState: (
     state: SetStateAction<TState>,
     options?: SetStateOptions
   ) => void
 ) {
-  const useReadOnlyState = createReadOnlyHook(state$, state => state);
+  const useReadOnlyState = createReadOnlyHook(state$, state => state)
 
   return () => {
     const state = useReadOnlyState()
