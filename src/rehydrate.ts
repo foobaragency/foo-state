@@ -1,10 +1,11 @@
+import { BehaviorSubject } from "rxjs"
+
 import { StorageItem } from "./StorageItem"
 import { isEqual } from "./isEqual"
 import { PersistenceOptions } from "./types"
-import { Observable } from "./Observable"
 
 export function rehydrate<TState>(
-  state$: Observable<TState>,
+  state$: BehaviorSubject<TState>,
   options: PersistenceOptions
 ) {
   const { key, type } = options
