@@ -82,6 +82,6 @@
     "semantic-release": "^19.0.2",
     "typedoc": "^0.23.2",
     "typedoc-plugin-markdown": "^3.11.13",
-    "typescript": "^4.5.5"
+    "typescript": "^5.0.2"
   }
 }
