@@ -1984,9 +1984,9 @@
     pretty-format "^27.0.2"
 
 "@testing-library/jest-dom@^6.0.1":
-  version "6.4.3"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-6.4.3.tgz#64f3a178b1f83c89c6cb93546aad1cfdc31a4cc2"
-  integrity sha512-d1NUtNEN0hSUB/XWdF1GgdlD5S2tS0huQb2tkFL2usXRatR/EiHS6AhLtDcCb/iD9CS7kRmbAHt2O5JadkKyuA==
+  version "6.4.5"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-6.4.5.tgz#badb40296477149136dabef32b572ddd3b56adf1"
+  integrity sha512-AguB9yvTXmCnySBP1lWjfNNUwpbElsaQ567lt2VdGqAdHtpieLgjmcVyv1q7PMIvLbgpDdkWV5Ydv3FEejyp2A==
   dependencies:
     "@adobe/css-tools" "^4.3.2"
     "@babel/runtime" "^7.9.2"
@@ -2142,9 +2142,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^18.0.0":
-  version "18.2.79"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.79.tgz#c40efb4f255711f554d47b449f796d1c7756d865"
-  integrity sha512-RwGAGXPl9kSXwdNTafkOEuFrTBD5SA2B3iEB96xi8+xu5ddUa/cpvyVCSNn+asgLCTHkb5ZxN8gbuibYJi4s1w==
+  version "18.3.1"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.1.tgz#fed43985caa834a2084d002e4771e15dfcbdbe8e"
+  integrity sha512-V0kuGBX3+prX+DQ/7r2qsv1NsdfnCLnTgnRJ1pYnxykBhGMz+qj+box5lq7XsO5mtZsBqpjwwTu/7wszPfMBcw==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
@@ -6971,12 +6971,12 @@ rc@^1.2.8:
     strip-json-comments "~2.0.1"
 
 react-dom@^18.0.0:
-  version "18.3.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.3.0.tgz#98a3a1cc4e471d517c2a084f38ab1d58d02cada7"
-  integrity sha512-zaKdLBftQJnvb7FtDIpZtsAIb2MZU087RM8bRDZU8LVCCFYjPTsDZJNFUWPcVz3HFSN1n/caxi0ca4B/aaVQGQ==
+  version "18.3.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.3.1.tgz#c2265d79511b57d479b3dd3fdfa51536494c5cb4"
+  integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
   dependencies:
     loose-envify "^1.1.0"
-    scheduler "^0.23.1"
+    scheduler "^0.23.2"
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -7369,7 +7369,7 @@ saxes@^6.0.0:
   dependencies:
     xmlchars "^2.2.0"
 
-scheduler@^0.23.1:
+scheduler@^0.23.2:
   version "0.23.2"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.2.tgz#414ba64a3b282892e944cf2108ecc078d115cdc3"
   integrity sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==
@@ -8128,12 +8128,10 @@ typed-array-length@^1.0.5:
     is-typed-array "^1.1.13"
     possible-typed-array-names "^1.0.0"
 
-typedoc-plugin-markdown@^3.11.13:
-  version "3.17.1"
-  resolved "https://registry.yarnpkg.com/typedoc-plugin-markdown/-/typedoc-plugin-markdown-3.17.1.tgz#c33f42363c185adf842f4699166015f7fe0ed02b"
-  integrity sha512-QzdU3fj0Kzw2XSdoL15ExLASt2WPqD7FbLeaqwT70+XjKyTshBnUlQA5nNREO1C2P8Uen0CDjsBLMsCQ+zd0lw==
-  dependencies:
-    handlebars "^4.7.7"
+typedoc-plugin-markdown@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/typedoc-plugin-markdown/-/typedoc-plugin-markdown-4.0.1.tgz#daaa0265c3806e19f0abcb1839922b4628a157f0"
+  integrity sha512-AfuIILU7aQbLMFyhX/qPT1yLrsQE9TiIxtmDKHRoQosDuHRS9CqA3aMOJyqmfE4Gn43vEQGb7vxEDwlrl3Sw8A==
 
 typedoc@^0.25.0:
   version "0.25.13"
